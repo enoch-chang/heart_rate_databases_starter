@@ -13,7 +13,8 @@ import numpy as np
 import logging
 
 app = Flask(__name__)
-connect("mongodb://localhost:27017/bme590") # connect to database
+connect("mongodb://localhost:27017/bme590")  # connect to database
+
 
 @app.route("/api/heart_rate", methods=["POST"])
 def heart_rate():
@@ -75,6 +76,7 @@ def rate_email(user_email):
 
     return jsonify(result), 200
 
+
 @app.route("/api/heart_rate/average/<user_email>", methods=["GET"])
 def average_email(user_email):
     """ Returns average of all heart rate measurements for user with specified
@@ -105,6 +107,7 @@ def average_email(user_email):
 
     return jsonify(result), 200
 
+
 @app.route("/api/heart_rate/interval_average", methods=["POST"])
 def interval_average():
     """ Calculates and returns average heart rate for the user since time
@@ -121,13 +124,12 @@ def interval_average():
     try:
         time = datetime.strptime(r["heart_rate_average_since"],
                                  "%Y-%m-%d %H:%M:%S.%f")
-        logging.info("%s%s","Time requested is valid: ", time)
+        logging.info("%s%s", "Time requested is valid: ", time)
     except ValueError:
         msg = "Time specified is of an invalid format. "
         logging.error(msg)
         print(msg)
         return msg, 400
-
 
     try:
         [hr, times] = main.return_all_hr(email)
@@ -152,7 +154,8 @@ def interval_average():
             "average_hr": average
     }
 
-    return jsonify(result),200
+    return jsonify(result), 201
+
 
 def check_input(r):
     """ Validates input heart rate data and returns information about input
@@ -211,6 +214,7 @@ def check_input(r):
 
     return True
 
+
 def calculate_average(hr):
     """ Returns the average heart rate calculated from an input list
 
@@ -224,6 +228,7 @@ def calculate_average(hr):
     average = np.mean(hr)
     logging.info("Average heart rate calculated successfully.")
     return average
+
 
 def diagnosis(hr):
     """ Returns a diagnosis based on the input heart rate - normal, tachycardic
@@ -241,12 +246,14 @@ def diagnosis(hr):
         logging.warning("Patient has bradycardia.")
     return condition
 
+
 def set_up_logging():
     logging.basicConfig(filename='webservice.txt',
                         format='%(asctime)s %(message)s',
                         datefmt='%m/%d/%Y %I:%M:%S %p',
                         level=logging.DEBUG)
     return
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1")

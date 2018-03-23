@@ -2,6 +2,7 @@ from webservice import calculate_average, diagnosis, check_input
 import pytest
 import math
 
+
 def test_calculate_average():
 
     output_1 = calculate_average([10, 20, 30])
@@ -25,6 +26,7 @@ def test_diagnosis():
     output_6 = diagnosis(45)
     assert output_6 == "Bradycardia"
 
+
 def check_input():
 
     input_7 = {
@@ -44,7 +46,6 @@ def check_input():
 
     output_8 = check_input(input_8)
     assert output_8 is True
-
 
     input_9 = {
         "user_age": 50,
@@ -84,8 +85,3 @@ def check_input():
     with pytest.raises(ValueError):
         output_12 = check_input(input_12)
     assert output_12 is False
-
-
-
-
-
