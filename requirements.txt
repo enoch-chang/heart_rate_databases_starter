@@ -1,2 +1,7 @@
 pymodm
 flask
+numpy
+pytest
+pytest-pep8
+pytest-cov
+sphinx
