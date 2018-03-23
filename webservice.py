@@ -20,7 +20,8 @@ connect("mongodb://localhost:27017/bme590")  # connect to database
 def heart_rate():
     """ Stores heart rate measurement for the user with the specified email
 
-    :return:
+    :return: user information that was stored by the POST request if successful
+    and an error message if input is invalid
     """
 
     set_up_logging()
@@ -51,11 +52,11 @@ def heart_rate():
 
 
 @app.route("/api/heart_rate/<user_email>", methods=["GET"])
-def rate_email(user_email):
+def heart_rate_email(user_email):
     """ Returns all heart rate measurements for user with specified email
 
-    :param user_email:
-    :return:
+    :param user_email: user email to identify patient file requested
+    :return: all heart rate measurements
     """
 
     set_up_logging()
@@ -82,8 +83,8 @@ def average_email(user_email):
     """ Returns average of all heart rate measurements for user with specified
     email
 
-    :param user_email:
-    :return:
+    :param user_email: user email to identify patient file requested
+    :return: average of all heart rate measurements
     """
 
     set_up_logging()
@@ -113,7 +114,7 @@ def interval_average():
     """ Calculates and returns average heart rate for the user since time
     specified
 
-    :return:
+    :return: the average heart rate since the last time specified
     """
 
     set_up_logging()
@@ -160,7 +161,8 @@ def interval_average():
 def check_input(r):
     """ Validates input heart rate data and returns information about input
 
-    :return:
+    :param r: request from getjson()
+    :return: boolean of whether the input is valid or not
     """
 
     msg = "Data input is OK. "
@@ -248,6 +250,10 @@ def diagnosis(hr):
 
 
 def set_up_logging():
+    """ Sets up data logging
+
+    :return: none
+    """
     logging.basicConfig(filename='webservice.txt',
                         format='%(asctime)s %(message)s',
                         datefmt='%m/%d/%Y %I:%M:%S %p',
