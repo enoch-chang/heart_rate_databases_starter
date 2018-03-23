@@ -1,0 +1,11 @@
+03/22/2018 10:12:08 PM 127.0.0.1 - - [22/Mar/2018 22:12:08] "POST /api/heart_rate/interval_average HTTP/1.1" 500 -
+03/22/2018 10:12:11 PM 127.0.0.1 - - [22/Mar/2018 22:12:11] "POST /api/heart_rate/interval_average HTTP/1.1" 500 -
+03/22/2018 10:12:47 PM Time requested is valid: 2018-03-09 11:00:36.372339
+03/22/2018 10:12:47 PM No data associated with the inputted user_email. 
+03/22/2018 10:12:47 PM 127.0.0.1 - - [22/Mar/2018 22:12:47] "POST /api/heart_rate/interval_average HTTP/1.1" 400 -
+03/22/2018 10:13:25 PM Average heart rate calculated successfully.
+03/22/2018 10:13:25 PM Data for requested user_email successfully retrieved!
+03/22/2018 10:13:25 PM 127.0.0.1 - - [22/Mar/2018 22:13:25] "GET /api/heart_rate/average/suyash@suyashkumar.com HTTP/1.1" 200 -
+03/22/2018 10:13:25 PM Average heart rate calculated successfully.
+03/22/2018 10:13:25 PM Data for requested user_email successfully retrieved!
+03/22/2018 10:13:25 PM 127.0.0.1 - - [22/Mar/2018 22:13:25] "GET /api/heart_rate/average/suyash@suyashkumar.com HTTP/1.1" 200 -
