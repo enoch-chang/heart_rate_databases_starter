@@ -19,6 +19,11 @@ def print_user(email):
     print(user.email)
     print(user.heart_rate)
     print(user.heart_rate_times)
+    return user.heart_rate
+
+def return_all_hr(email):
+    user = models.User.objects.raw({"_id": email}).first() # Get the first user where _id=email
+    return user.heart_rate, user.heart_rate_times
 
 if __name__ == "__main__":
     connect("mongodb://localhost:27017/heart_rate_app") # open up connection to db
