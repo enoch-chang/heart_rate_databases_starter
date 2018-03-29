@@ -13,7 +13,7 @@ import numpy as np
 import logging
 
 app = Flask(__name__)
-connect("mongodb://localhost:27017/bme590")  # connect to database
+connect("mongodb://vcm-3608.vm.duke.edu:27017/bme590")  # connect to database
 
 
 @app.route("/api/heart_rate", methods=["POST"])
@@ -262,4 +262,4 @@ def set_up_logging():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1")
+    app.run(host="0.0.0.0")
