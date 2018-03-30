@@ -5,6 +5,7 @@ from the database and obtain either the global or a specified interval average.
 """
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import pymodm
 from pymodm import connect
 from datetime import datetime
@@ -13,6 +14,7 @@ import numpy as np
 import logging
 
 app = Flask(__name__)
+CORS(app)
 connect("mongodb://vcm-3608.vm.duke.edu:27017/bme590")  # connect to database
 
 
