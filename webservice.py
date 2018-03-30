@@ -64,11 +64,12 @@ def heart_rate_email(user_email):
     set_up_logging()
 
     try:
-        all_hr = main.print_user(user_email)
+        user_data = main.print_user(user_email)
 
         result = {
             "user_email": user_email,
-            "heart_rate": all_hr
+            "heart_rate": user_data.heart_rate,
+            "times": user_data.heart_rate_times
         }
         logging.info("Data for requested user_email successfully retrieved!")
     except pymodm.errors.DoesNotExist:

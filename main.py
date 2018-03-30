@@ -27,7 +27,7 @@ def print_user(email):
     print(user.email)
     print(user.heart_rate)
     print(user.heart_rate_times)
-    return user.heart_rate
+    return user
 
 
 def return_all_hr(email):
