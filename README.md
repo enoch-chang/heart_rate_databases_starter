@@ -1,21 +1,39 @@
 # heart_rate_databases_starter
-Starter codebase for BME590 Databases Assignment (which can be found [here](https://github.com/mlp6/Medical-Software-Design/blob/master/Lectures/databases/main.md#mini-projectassignment)). 
+This is the back-end component of a heart rate monitor, consisting of the server and the database. 
 
-To get started with this sample code, you first need to get the mongodb program running. To do this, simply run 
+The server component ```webservice.py``` is a Flask application that allows users to add heart rate data to a specified user, retrieve all the heart rate from a specified user, retrieve the average heart rate for the specified user and to retrieve the average heart rate over a specified time frame for a specified user.
+
+The database component ```main.py``` stores and retrieves information from a MongoDB database. It can add heart rate information to an existing user, create new users, retrieve user information and retrieve all heart rate information stored for a specified user. All information is stored in the format specified in ```models.py```.
+
+## Installation and Set-Up
+
+To get started with this sample code, you first need to install required python packages into your virtual environment.
+```
+pip install -r requirements.txt
+```
+
+### To run on a virtual machine
+This code is to be deployed from a virtual machine. First, the database is initiated. MongoDB can be run using ```Docker``` by running the following command once installed into your virtual machine:
+```
+sudo docker run -v $PWD/db:/data/db -p 27017:27017 mongo
+```
+
+To run the server, execute using ```gunicorn```:
+```
+gunicorn --bind 0.0.0.0:5000 webservice:app
+```	
+
+### To run locally
+To deploy locally, modify the address of the associated database in line 18 of ```webservice.py```.
+
+MongoDB can be run using ```Docker``` by running the following command once installed:
 ```
 docker run -v $PWD/db:/data/db -p 27017:27017 mongo
 ```
 
-either on your local machine (if you have docker installed there) or on a virtual machine you have access to where you can first install docker.
-
-:eyes: if you are running your mongodb database on a virtual machine, you need to replace the `connect` URI string in `main.py`. Replace `localhost` with a VM address, like so:
-
-```py
-connect("mongodb://vcm-0000.vm.duke.edu:27017/heart_rate_app") # open up connection to db
+To run the server, execute using the following script:
 ```
+FLASK_APP=webservice.py flask run
+```	
 
-once your database is running and your connection string is set, you can run the starter program by running `main.py` after activating your `virtualenv` and installing all the dependencies listed in `requirements.txt`.
-
-```
-python main.py
-```
+Travis CI Status:  [![Build Status](https://travis-ci.org/enoch-chang/bme590hrm.svg?branch=master)](https://travis-ci.org/enoch-chang/bme590hrm)
