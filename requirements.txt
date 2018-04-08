@@ -5,3 +5,5 @@ pytest
 pytest-pep8
 pytest-cov
 sphinx
+flask-cors
+gunicorn
