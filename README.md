@@ -24,7 +24,10 @@ gunicorn --bind 0.0.0.0:5000 webservice:app
 ```	
 
 ### To run locally
-To deploy locally, modify the address of the associated database in line 18 of ```webservice.py```.
+To deploy locally, modify the address of the associated database in line 18 of ```webservice.py``` to:
+```
+connect("mongodb://localhost:27017/bme590")
+```
 
 MongoDB can be run using ```Docker``` by running the following command once installed:
 ```
