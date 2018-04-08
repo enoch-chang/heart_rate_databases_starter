@@ -5,9 +5,9 @@ The server component ```webservice.py``` is a Flask application that allows user
 
 The database component ```main.py``` stores and retrieves information from a MongoDB database. It can add heart rate information to an existing user, create new users, retrieve user information and retrieve all heart rate information stored for a specified user. All information is stored in the format specified in ```models.py```.
 
-## Installation and Set-Up
+## Installation and Deployment
 
-To get started with this sample code, you first need to install required python packages into your virtual environment.
+To get started, you first need to install required python packages into your virtual environment.
 ```
 pip install -r requirements.txt
 ```
