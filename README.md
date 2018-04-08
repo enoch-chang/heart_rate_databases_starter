@@ -39,4 +39,4 @@ To run the server, execute using the following script:
 FLASK_APP=webservice.py flask run
 ```	
 
-Travis CI Status:  [![Build Status](https://travis-ci.org/enoch-chang/bme590hrm.svg?branch=master)](https://travis-ci.org/enoch-chang/bme590hrm)
+Travis CI Status:  [![Build Status](https://travis-ci.org/enoch-chang/heart_rate_databases_starter.svg?branch=master)](https://travis-ci.org/enoch-chang/heart_rate_databases_starter)
